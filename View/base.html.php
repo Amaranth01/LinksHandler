@@ -29,6 +29,14 @@
     }
     ?>
 
+    <nav>
+        <ul>
+            <li><a href="/index.php?c=user&a=login-page">Connexion</a></li>
+            <li><a href="/index.php?c=user&a=register-page">Inscription</a></li>
+            <li><a href="/index.php?c=user&a=logout">Déconnexion</a></li>
+        </ul>
+    </nav>
+
     <main class="container">
         <?= $html ?>
     </main>
