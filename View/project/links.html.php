@@ -10,5 +10,5 @@
     <label for="img">Image de votre lien </label>
     <input type="file" name="img" id="img" accept=".jpg, .jpeg, .png">
 
-    <input type="submit" name="submit" value="Enregistrer le lien">
+    <input type="submit" name="submit" value="Enregistrer le lien" class="button">
 </form>

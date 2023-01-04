@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 65.5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+
+    background-color: indianred;
+    padding: 0.5rem;
+
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    font-size: 1.5rem;
+}
+
+ul > li > a {
+    color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 2.5rem;
+}
+
+#addLink {
+    text-align: right;
+    margin-right: 2rem;
+    font-size: 1.5rem;
+}
+
+#addLink > a > span {
+    background-color: indianred;
+    color: whitesmoke;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+#container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.content {
+    border: 2px solid indianred;
+    border-radius: 8px;
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+h3, h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+}
+
+h2 {
+    margin-top: 2rem;
+}
+
+.content > img {
+    width: 25rem;
+    padding: 0.5rem;
+}
+
+.content > p {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+    font-size: 1.5rem;
+}
+
+label {
+    margin-bottom: 0.5rem;
+}
+
+input {
+    padding: 0.5rem;
+}
+
+.button {
+    background-color: indianred;
+    color: whitesmoke;
+    font-weight: bold;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}

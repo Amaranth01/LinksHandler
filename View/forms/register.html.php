@@ -11,5 +11,5 @@
     <label for="passwordR">Répétez votre mot de passe</label>
     <input type="password" id="passwordR" name="passwordR">
 
-    <input type="submit" name="submit" value="Inscription">
+    <input type="submit" name="submit" value="Inscription" class="button">
 </form>

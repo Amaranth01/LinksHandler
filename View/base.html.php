@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="stylesheet" href="/../asset/style.css">
     <title>Links Handler</title>
 </head>
 <body>
@@ -43,5 +43,6 @@
     </main>
 
     <script src="https://kit.fontawesome.com/f33464c73a.js" crossorigin="anonymous"></script>
+    <script src="/build/js/front-bundle.js"></script>
 </body>
 </html>

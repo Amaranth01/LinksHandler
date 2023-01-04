@@ -1,0 +1,60 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+
+const production = {
+    module: {
+        rules: [
+            {
+                test: /\.s?css$/i,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            import: true,
+                            sourceMap: true,
+                        }
+                    },
+                    "sass-loader",
+                ],
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                type: 'assets/resource',
+                generator: {
+                    filename: 'image/[name][ext]',
+                }
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env'],
+                    plugins: ['@babel/plugin-proposal-object-rest-spread']
+                }
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
+
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new CssMinimizerPlugin(),
+            new TerserPlugin(),
+        ]
+    },
+
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: './css/[name].css',
+        })
+    ]
+}
+
+module.exports = production;
