@@ -6,26 +6,30 @@ use RedBeanPHP\R;
 
 class LinksController extends AbstractController
 {
-    public function addLink() {
+    public function addLink()
+    {
+        if (isset($_POST['submit'])) {
 
-        $user = R::findOne('user', 'id=?', [$_SESSION['user']->id]);
-        $link = R::dispense('link');
-        $link->linkTitle = $this->clean($this->getFormField('title'));
-        $link->linkName = $this->clean($this->getFormField('link'));
-        $link->linkImage = $this->addImage();
-        $user->ownLinkList[] = $link;
+            $link = R::dispense('link');
+            $user = R::findOne('user', 'id=?', [$_SESSION['user']->id]);
 
-        R::store($link);
-        R::store($user);
+            $link->linkTitle = $this->clean($this->getFormField('title'));
+            $link->linkName = $this->clean($this->getFormField('link'));
+            $link->linkImage = $this->addImage();
 
-        $_SESSION['success'] = "Ajout terminé";
+            $user->ownLinkList[] = $link;
+            R::store($link);
+            R::store($user);
 
-        $this->render("home/allLinks", [
-            'link' => R::findAll('link', $_SESSION['user']->id),
-        ]);
+            $_SESSION['success'] = "Ajout terminé";
+
+            $this->render("home/allLinks", [
+                'link' => R::findAll('link', $_SESSION['user']->id),
+            ]);
+        }
     }
 
-    public function addImage(): string
+    public function addImage()
     {
         $name = "";
         $error = [];
@@ -49,7 +53,7 @@ class LinksController extends AbstractController
                         mkdir('uploads');
                     }
                     //File move
-                    move_uploaded_file($tmp_name,'/../../public/uploads/' . $name);
+                    move_uploaded_file($tmp_name,'../public/uploads/' . $name);
                 }
                 else {
                     $_SESSION['errors'] =  "Le poids est trop lourd, maximum autorisé : 1 Mo";
@@ -69,7 +73,8 @@ class LinksController extends AbstractController
         return $name;
     }
 
-    public function deleteLink(int $id = null) {
+    public function deleteLink(int $id = null)
+    {
         $link = R::findOne('link', 'id=?', [$id]);
         $user = R::findOne('user', 'id=?', [$_SESSION['user']->id]);
         R::trash($link);

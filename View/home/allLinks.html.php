@@ -16,7 +16,7 @@ use App\Controller\AbstractController;
     foreach ($data['link'] as $link) { ?>
         <div class="content">
             <h3><?=$link->linkTitle?></h3>
-<!--            <img src="/assets/img/--><?php //=$link->linkImage?><!--" alt="Image du lien">-->
+            <img src="/uploads/<?=$link->linkImage?>" alt="Image du lien">
             <p><?=$link->linkName?></p>
         </div>
 <?php
